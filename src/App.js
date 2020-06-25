@@ -5,7 +5,7 @@ import './App.css';
 /*global NDEFReader*/
 async function readTag(){
   
-  /* if NDEFReader is available on the device */
+  /* if NDEFReader IS available on the device */
   if ("NDEFReader" in window) {
 
     /* initialize the reader */
@@ -15,21 +15,18 @@ async function readTag(){
       /* Wait for promise - The scan() method of NDEFReader interface reads NDEF records from compatible NFC tag.  */
       await reader.scan();
 
-      /* The onreading property is called whenever a new reading is available from a NFC tag, when the tag is within the reader's magnetic induction field. */
+      /* The onreading property is called whenever a new reading is available from a NFC tag, 
+      event starts when the tag is within the reader's magnetic induction field. */
       reader.onreading = event => {
 
-        /* The TextDecoder interface represents a decoder for a specific text encoding. It takes a stream of bytes as input and emits a stream of code points */
+        /* The TextDecoder interface represents a decoder for a specific text encoding. 
+        It takes a stream of bytes as input and emits a stream of code points */
         const decoder = new TextDecoder();
 
         /* Loop runs thru all datafields of the NFC tag, this gives a full list of all datas */
         for (const record of event.message.records) {
 
           /* To display the Image: Filter if type is a URL call fillImg() with the information of the data field */
-          /*
-          if(record.recordType == 'url' && decoder.decode(record.data).substring(0, 4) == 'http'){
-            fillImg(decoder.decode(record.data));
-          }
-          */
           if(decoder.decode(record.data).substring(0, 4) == 'http'){
             fillImg(decoder.decode(record.data));
           }
@@ -44,7 +41,7 @@ async function readTag(){
       consoleLog(error);
     }
   } else {
-    /* if NDEFReader is NOT available */
+    /* if NDEFReader IS NOT available */
     consoleLog("Web NFC is not supported.");
   }
 }
