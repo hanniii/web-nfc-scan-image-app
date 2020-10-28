@@ -1,3 +1,15 @@
+/* ----- 
+Author: Hanna Z. 
+To make this project work you have to:
+1.) Publish the project
+2.) You need a NFC capable Android Phone 
+3.) The Chrome Browser >= 81 
+4.) The enable flag:  chrome://flags/#enable-experimental-web-platform-features
+5.) Pictures with NFC-Tags which stores the Picture details (the link to the source for the Photo, the name of the attraction, the altitude and latitude of the location). The easiest way to store data on an empty NFC-Tag is to use a open source App like 'NFC Tools' 
+
+--> You can also visit my GitHub Repository:  https://hanniii.github.io/web-nfc-scan-image-app/
+----- */
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
